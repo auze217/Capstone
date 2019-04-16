@@ -2,19 +2,15 @@
  * classes for the visualization steps
  * @param {Trace} traceForStep the trace object correspond to a single step
  */
-class VisualizationStep {
-    constructor(traceForStep) {
-        //linked list stuff
-        this.traceForStep = traceForStep;
-        this.linkedListForStep = new LinkedList(traceForStep.traceHeap);
-        this.pointerForStep = new LinkedListPointersForStep(traceForStep.traceStack, this.linkedListForStep);
-        this.stepCodeLine = traceForStep.traceCode;
-        this.stepCodeLineNumber = traceForStep.traceCodeLineNumber;
-
-        //tree stuff
-        this.treeForStep = new TreeNode(traceForStep.tractHeap);
+class VisualizationStep{
+constructor(traceForStep) {
+    this.traceForStep = traceForStep;
+    this.linkedListForStep = new LinkedList(traceForStep.traceHeap);
+    this.pointerForStep = new LinkedListPointersForStep(traceForStep.traceStack, this.linkedListForStep);
+    this.stepCodeLine = traceForStep.traceCode;
+    this.stepCodeLineNumber = traceForStep.traceCodeLineNumber;
     }
-    /**
+     /**
      * gets the linked list for this step
      */
     getLinkedListForStep() {

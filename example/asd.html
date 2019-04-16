@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Modal Example</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" id = 'VisualizeModal'>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+                    <script type="text/javascript"> 
+                    var iframe = document.createElement('iframe');
+                    document.getElementById('VisualizeModal').appendChild(iframe);
+                    var iframeDoc = iframe.contentDocument;
+                    $(iframeDoc).ready(function (event) {
+                      iframeDoc.open();
+    //iframeDoc.write('iframe here');
+    //iframeDoc.write('\<script>alert("hello from iframe!");\<\/script>');
+    //iframeDoc.write('\<script>parent.hello();\<\/script>');
+    iframeDoc.write("\<script>\
+                    var testvisualizerTrace ={\"code\":\"\",\"trace\":[\
+                    ],\"userlog\":\"Debugger VM maxMemory: 807M \\n \"}\n\
+                    \n\
+                    \<\/script>\
+                    \n\
+                    \<body onload=\"visualize(testvisualizerTrace);\"/>\n");
+    iframeDoc.write( "\<head>\n\
+                 \<title>JSAV example\<\/title>\n \
+                 <meta charset=\"utf-8\"/>\n \
+                    <link rel=\"stylesheet\" href=\"https://opendsax.cs.vt.edu:9292/assets/JSAV.css\" type=\"text/css\"/>\n \
+                    <link rel=\"stylesheet\" href=\"https://opendsax.cs.vt.edu:9292/assets/odsaAV-min.css\" type=\"text/css\"/>\n \
+                    <link rel=\"stylesheet\" href=\"https://opendsax.cs.vt.edu:9292/assets/odsaStyle-min.css\" type=\"text/css\"/>\n \
+                    \<style>\n \
+                    #container {\n \
+                    width: 780px;\n \
+                    height: 540px;\n \
+                    }\n \
+                    \<\/style>\n \
+                    \<\/head>\n");
+    
+   iframeDoc.write('\<body>\n\
+                   \<div id=\"container\">\n\
+                   \<div class=\"avcontainer\">\n\
+                   \<span class=\"jsavcounter\">\<\/span>\n\
+                    <div class=\"jsavcontrols\">\<\/div>\n\
+                    <p class=\"jsavoutput jsavline\">\<\/p>\n\
+                    \<\/div> <!--avcontainer-->\n\
+                    \<\/div> <!--container-->\
+                   \<script src=\"https://opendsax.cs.vt.edu:9293/assets/jquery-2.1.4.min.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/jquery-ui.min.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/jquery.transit.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/raphael.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/JSAV-min.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/odsaUtils-min.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/odsaAV-min.js\">\<\/script>\n\
+                    \<script src=\"https://opendsax.cs.vt.edu:9293/assets/JsavWrapper.js\">\<\/script>\n\
+                    \n\
+                    \<\/body>');                 
+    iframeDoc.close();
+    iframe.height = iframeDoc.scrollHeight + "px";
+    iframe.width = iframeDoc.scrollWidth + "px";
+});
+                    </script>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<script>var testvisualizerTrace =
+    {"code":"    r.next = p;\n\n ","trace": [{"stack":{"ordered_variable_names":["p","r"],"encoded_locals":{"p":["REF",179],"r":["REF",181]}},"heap":{"179":["INSTANCE","Link",["next",["REF",180]],["data",1]],"180":["INSTANCE","Link",["next",["REF",181]],["data",2]],"181":["INSTANCE","Link",["next",null],["data",3]]},"code":" p = p.next;","lineNumber":0},{"stack":{"ordered_variable_names":["p","r"],"encoded_locals":{"p":["REF",180],"r":["REF",181]}},"heap":{"179":["INSTANCE","Link",["next",["REF",180]],["data",1]],"180":["INSTANCE","Link",["next",["REF",181]],["data",2]],"181":["INSTANCE","Link",["next",null],["data",3]]},"code":"return statement","lineNumber":2}] 
+,"userlog":"Debugger VM maxMemory: 807M \n "}
+
+</script>
+
+
+
+
+<body onload="visualize(testvisualizerTrace);"/>
+<head>
+    <title>JSAV example</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="JSAV.css" type="text/css"/>
+    <link rel="stylesheet" href="odsaAV-min.css" type="text/css"/>
+    <link rel="stylesheet" href="odsaStyle-min.css" type="text/css"/>
+    <style>
+        #container {
+            width: 780px; 
+            height: 540px;
+        }
+        
+    </style>
+</head>
+
+<body>
+<div id="container" style="padding-top: 1%">
+    <div class="avcontainer">
+        <span class="jsavcounter"></span>
+        <div class="jsavcontrols"></div>
+        <p class="jsavoutput jsavline"></p>
+    </div> <!--avcontainer-->
+</div> <!--container-->
+
+<script src="JsavWrapper.js"></script>
+
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="jquery.transit.js"></script>
+<script src="raphael.js"></script>
+<script src="JSAV-min.js"></script>
+<script src="odsaUtils-min.js"></script>
+<script src="odsaAV-min.js"></script>
+
+
+</body></html>
