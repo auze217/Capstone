@@ -28,7 +28,6 @@ function CreateListOfLinkedLists(trace) {
  * Code for the main function
  */
 function visualize(testVisualizerTrace) {
-    console.log("in visualize method");
     //var traces = new TraceList(testVisualizerTrace.trace);
     //var code = new StudentCode(testVisualizerTrace.code);
     //var vis = new Visualization(traces, code);
@@ -114,7 +113,7 @@ class TreeNode{
      * @param {reference} value the reference value for the left child node in the tree
      */
     setRight(value) {
-        this.nodeRight = value;
+        this.rightId = value;
     }
     /**
      * checks if the current node is equal to the other node
@@ -146,10 +145,20 @@ class TreeNode{
 };
 
 function testTree() {
+    const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
+    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
+    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this","__return__"],"encoded_locals":{"this":["REF",172],"__return__":4}},
+    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
+    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",13],"value":4}},
+    "heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":["root","value","__return__"],"encoded_locals":{"root":["REF",13],"value":4,"__return__":true}},
+    "heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
+    "heap":{},"code":null,"lineNumber":64},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
+    "heap":{},"code":null,"lineNumber":65},{"stack":{"ordered_variable_names":["__return__"],"encoded_locals":{"__return__":["VOID"]}},
+    "heap":{},"code":null,"lineNumber":65}];
 
-const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
+
+/*
+    const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
 "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
 "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this","__return__"],"encoded_locals":{"this":["REF",172],"__return__":4}},
 "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
@@ -159,97 +168,77 @@ const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_loca
 "heap":{},"code":null,"lineNumber":64},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
 "heap":{},"code":null,"lineNumber":65},{"stack":{"ordered_variable_names":["__return__"],"encoded_locals":{"__return__":["VOID"]}},
 "heap":{},"code":null,"lineNumber":65}];
+*/
 
-var roots = [];
+var roots = null;
 var nodes = []; //THIS IS GONNA HAVE TREE BUILDING TIME OF 3N ISH
+var nodeIDs = [];
 var count = 0;
+var first = true;
+
+var jsav = new JSAV("container");
+var bt = jsav.ds.binarytree();
+
 for (var step in trace) {
-    var first = true;
+    
     for (var key in trace[step].heap) {
-        if (first) {
-            first = false;
-            var refID = trace[step].heap[key][2][1];
-            var leftRef = trace[step].heap[key][3][1];
-            var rightRef = trace[step].heap[key][4][1];
 
-            //this is to check if the child is null cause its either null or ["ref", null] so you need an extra [1]
-            if (leftRef != null) {
-                leftRef = leftRef[1];
-            }
-            if (rightRef != null) {
-                rightRef = rightRef[1];
-            }
-
-
-            let treeNode = new TreeNode(refID, key, leftRef , rightRef);
-            roots.push(treeNode);
-            nodes.push(treeNode);
-            continue;
-        }
-
-        var refID = trace[step].heap[key][2][1];
+        
+        var data = trace[step].heap[key][2][1];
         var leftRef = trace[step].heap[key][3][1];
-        var rightRef = trace[step].heap[key][4][1]
-
+        var rightRef = trace[step].heap[key][4][1];
         if (leftRef != null) {
             leftRef = leftRef[1];
         }
         if (rightRef != null) {
             rightRef = rightRef[1];
         }
-        let treeNode = new TreeNode(refID, key, leftRef , rightRef);
-        nodes.push(treeNode);
-    }
-    
-    count++;
-    if (count == 2) {
-        break; //only doing 2 tree now
-    }
-    
-}
 
-for(let node of nodes) {
-    var leftNum = node.getLeft();
-    var rightNum = node.getRight();
-    if (leftNum == null && rightNum == null) {
-        continue; //dont look for pointers if both child nodes should be null
-    }
-    for (let nodeTwo of nodes) {
-        if (leftNum != null && nodeTwo.getReference() == leftNum) {
-            node.setLeftNode(nodeTwo);
-            
+        if (nodeIDs.includes(key)) {
+            let node = nodes.find(node => node.nodeReference == key);
+            node.setLeft(leftRef);
+            node.setRight(rightRef);
+            node.setData(data);
         }
-        if (rightNum != null && nodeTwo.getReference() == rightNum) {
-            node.setRightNode(nodeTwo);
-            
+        else {
+            let treeNode = new TreeNode(data, key, leftRef , rightRef);
+            nodes.push(treeNode);
+            nodeIDs.push(key);
+            if (first) {
+                roots = treeNode;
+                first = false;
+            }
+        }
+        
+    }
+
+    //connecting nodes with real pointers
+    for(let node of nodes) {
+        var leftNum = node.getLeft();
+        var rightNum = node.getRight();
+        if (leftNum == null && rightNum == null) {
+            continue; //dont look for pointers if both child nodes should be null
+        }
+        for (let nodeTwo of nodes) {
+            if (leftNum != null && nodeTwo.getReference() == leftNum) {
+                node.setLeftNode(nodeTwo);
+            }
+            if (rightNum != null && nodeTwo.getReference() == rightNum) {
+                node.setRightNode(nodeTwo);
+            }
         }
     }
+    bt.root(roots.getData());
+    
+    recursiveJsavVisualize(roots, bt.root());
+    bt.layout();
+    jsav.step();
 }
-
-var jsav = new JSAV("container");
-var bt = jsav.ds.binarytree();
-jsav.step();
-
-bt.root(roots[0].getData());
-bt.layout();
-jsav.step();
-
-
-recursiveJsavVisualize(roots[0], bt.root());
-bt.layout();
-jsav.step();
-
-
-/*bt.root(roots[1].getData());
-recursiveJsavVisualize(roots[1], bt.root());            THIS IS BROKEN IT DOESNT REMAKE THE TREE IS CHANGES OLD STEP VALUES
-bt.layout();
-jsav.step();
-*/
 
 jsav.recorded(); // done recording changes, will rewind
 
 
-console.log(roots[0])
+console.log(roots)
 
 }
 
