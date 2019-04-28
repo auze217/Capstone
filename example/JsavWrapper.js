@@ -45,6 +45,7 @@ class TreeNode{
     this.rightId = passedInRight;
     this.leftNode = null;
     this.rightNode = null;
+    this.isRoot = false; 
 
     }
     /**
@@ -52,6 +53,14 @@ class TreeNode{
      */
     getData() {
         return this.nodeData;
+    }
+
+    getIsRoot() {
+        return this.isRoot;
+    }
+
+    setIsRoot(value) {
+        this.isRoot = value;
     }
 
     setRightNode(value) {
@@ -145,10 +154,19 @@ class TreeNode{
 };
 
 function testTree() {
-    const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
+
+
+    const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{
+    "root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",
+    ["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",
+    ["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],
+    "175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",
+    ["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{
+    "stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}}
+    ,"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
     "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
     "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this","__return__"],"encoded_locals":{"this":["REF",172],"__return__":4}},
-    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
+    "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",174],"value":4}},
     "heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",13],"value":4}},
     "heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":["root","value","__return__"],"encoded_locals":{"root":["REF",13],"value":4,"__return__":true}},
     "heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
@@ -177,13 +195,15 @@ var count = 0;
 var first = true;
 
 var jsav = new JSAV("container");
-var bt = jsav.ds.binarytree();
+var bt = jsav.ds.binarytree({left: 270, top: 50});
+var pointer = null;
+var rootPointerID = null;
 
 for (var step in trace) {
-    
+    if (trace[step].stack.encoded_locals.root != null) {
+        rootPointerID = trace[step].stack.encoded_locals.root[1]
+    }
     for (var key in trace[step].heap) {
-
-        
         var data = trace[step].heap[key][2][1];
         var leftRef = trace[step].heap[key][3][1];
         var rightRef = trace[step].heap[key][4][1];
@@ -216,6 +236,12 @@ for (var step in trace) {
     for(let node of nodes) {
         var leftNum = node.getLeft();
         var rightNum = node.getRight();
+        if (node.getReference() == rootPointerID) {
+            node.setIsRoot(true);
+        }
+        else {
+            node.setIsRoot(false);
+        }
         if (leftNum == null && rightNum == null) {
             continue; //dont look for pointers if both child nodes should be null
         }
@@ -229,9 +255,11 @@ for (var step in trace) {
         }
     }
     bt.root(roots.getData());
-    
-    recursiveJsavVisualize(roots, bt.root());
     bt.layout();
+    pointer = jsav.pointer("Root", bt.root(), {top: -20, arrowAnchor: "center top"});
+    recursiveJsavVisualize(roots, bt.root(), jsav, pointer);
+    bt.layout();
+    
     jsav.step();
 }
 
@@ -242,16 +270,20 @@ console.log(roots)
 
 }
 
-function recursiveJsavVisualize(node, btnode) {
+function recursiveJsavVisualize(node, btnode, jsav, pointer) {
     var leftNum = node.getLeft();
     var rightNum = node.getRight();
+    if (node.getIsRoot() == true) {
+        pointer.target(btnode);
+        //pointer.pointer("Root", btnode, {top: -20, arrowAnchor: "center top"});
+    }
  if (leftNum != null) {
     var newBtNode = btnode.left(node.getLeftNode().getData());
-    recursiveJsavVisualize(node.getLeftNode(), newBtNode);
+    recursiveJsavVisualize(node.getLeftNode(), newBtNode, jsav, pointer);
  }
  if (rightNum != null) {
      var newBtNode = btnode.right(node.getRightNode().getData());
-     recursiveJsavVisualize(node.getRightNode(), newBtNode);
+     recursiveJsavVisualize(node.getRightNode(), newBtNode, jsav, pointer);
  }
  return;
 }
