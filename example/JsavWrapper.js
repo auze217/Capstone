@@ -153,7 +153,7 @@ class TreeNode{
     }
 };
 
-function testTree() {
+function testTree(tracePassed) {
 
 
     const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{
@@ -176,35 +176,47 @@ function testTree() {
 
 
 /*
-    const trace = [{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"if(root == null)","lineNumber":0},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this"],"encoded_locals":{"this":["REF",172]}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["this","__return__"],"encoded_locals":{"this":["REF",172],"__return__":4}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":null,"lineNumber":12},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",172],"value":4}},
-"heap":{"172":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"        if(root.value() == value)","lineNumber":2},{"stack":{"ordered_variable_names":["root","value"],"encoded_locals":{"root":["REF",13],"value":4}},
-"heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":["root","value","__return__"],"encoded_locals":{"root":["REF",13],"value":4,"__return__":true}},
-"heap":{"13":["INSTANCE","BinNode",["elem",4],["left",["REF",173]],["right",["REF",175]]],"173":["INSTANCE","BinNode",["elem",1],["left",["REF",174]],["right",null]],"174":["INSTANCE","BinNode",["elem",3],["left",null],["right",null]],"175":["INSTANCE","BinNode",["elem",2],["left",null],["right",["REF",176]]],"176":["INSTANCE","BinNode",["elem",8],["left",null],["right",null]]},"code":"            return true;","lineNumber":3},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
-"heap":{},"code":null,"lineNumber":64},{"stack":{"ordered_variable_names":[],"encoded_locals":{}},
-"heap":{},"code":null,"lineNumber":65},{"stack":{"ordered_variable_names":["__return__"],"encoded_locals":{"__return__":["VOID"]}},
-"heap":{},"code":null,"lineNumber":65}];
+    FOR IMPLEMENTING INTO SERVER AND PASSSING IN TRACE UNCOMMENT THIS LINE AND DELETE TRACE VARIABLE ABOVE
+    const trace = tracePassed;
 */
 
+/*
+  Roots holds the root node of the whole tree
+  nodes contains all the nodes that were made to iterate through to create pointers
+  the nodeIDs is to check if a node has already been created
+  the first is to only run the making of the tree and root node one time
+*/
 var roots = null;
-var nodes = []; //THIS IS GONNA HAVE TREE BUILDING TIME OF 3N ISH
+var nodes = []; 
 var nodeIDs = [];
-var count = 0;
 var first = true;
 
+/*
+  These variables are used throughout the code, the jsav, bt, and pointer are all objects that are used for visualizing
+  the rootPointerID is to check 1) if the root changes and 2) to determine which node the pointer should point to
+  the firstPointer is just a boolean to make sure a jsav code snippet only runs the first time
+  the valueChanged is a checker that is reset every new stack so that there is not a new step if nothing has changed
+*/
 var jsav = new JSAV("container");
 var bt = jsav.ds.binarytree({left: 270, top: 50});
 var pointer = null;
 var rootPointerID = null;
+var firstPointer = true;
+var valueChanged = false; 
 
-for (var step in trace) {
-    if (trace[step].stack.encoded_locals.root != null) {
-        rootPointerID = trace[step].stack.encoded_locals.root[1]
+for (var step in trace) { //this for loop going through each heap / tree
+    valueChanged = false;
+
+    if (trace[step].stack.encoded_locals.root != null) { //this checks if a root node has been established and checks if the pointer should change later
+        if (rootPointerID != trace[step].stack.encoded_locals.root[1]) {
+            rootPointerID = trace[step].stack.encoded_locals.root[1]
+            valueChanged = true;
+        }
     }
-    for (var key in trace[step].heap) {
-        var data = trace[step].heap[key][2][1];
+    
+
+    for (var key in trace[step].heap) { //this for loop goes through each node in a single heap / tree
+        var data = trace[step].heap[key][2][1]; //this grabs all the data for a single node and notes is there are any changes to the tree to add a jsav step
         var leftRef = trace[step].heap[key][3][1];
         var rightRef = trace[step].heap[key][4][1];
         if (leftRef != null) {
@@ -214,13 +226,23 @@ for (var step in trace) {
             rightRef = rightRef[1];
         }
 
-        if (nodeIDs.includes(key)) {
+        if (nodeIDs.includes(key)) { //this is if the node already exists
             let node = nodes.find(node => node.nodeReference == key);
-            node.setLeft(leftRef);
-            node.setRight(rightRef);
-            node.setData(data);
+            if (node.getLeft() != leftRef) {
+                node.setLeft(leftRef);
+                valueChanged = true;
+            }
+            if (node.getRight() != rightRef) {
+                node.setRight(rightRef);
+                valueChanged = true;
+            }
+            if (node.getData() != data) {
+                node.setData(data);
+                valueChanged = true;
+            }
+            
         }
-        else {
+        else { //this is if it is a new node and adds it to the array of nodes
             let treeNode = new TreeNode(data, key, leftRef , rightRef);
             nodes.push(treeNode);
             nodeIDs.push(key);
@@ -228,6 +250,7 @@ for (var step in trace) {
                 roots = treeNode;
                 first = false;
             }
+            valueChanged = true;
         }
         
     }
@@ -243,7 +266,7 @@ for (var step in trace) {
             node.setIsRoot(false);
         }
         if (leftNum == null && rightNum == null) {
-            continue; //dont look for pointers if both child nodes should be null
+            continue; //skips looking for pointers if both child are should be null
         }
         for (let nodeTwo of nodes) {
             if (leftNum != null && nodeTwo.getReference() == leftNum) {
@@ -254,28 +277,30 @@ for (var step in trace) {
             }
         }
     }
-    bt.root(roots.getData());
-    bt.layout();
-    pointer = jsav.pointer("Root", bt.root(), {top: -20, arrowAnchor: "center top"});
-    recursiveJsavVisualize(roots, bt.root(), jsav, pointer);
-    bt.layout();
     
-    jsav.step();
+    if (firstPointer) { //this is making the jsav tree but only the first time
+        firstPointer = false;
+        bt.root(roots.getData());
+        bt.layout();
+        pointer = jsav.pointer("Root", bt.root(), {top: -20, arrowAnchor: "center top"});
+    }
+    if (valueChanged) { //given something has changed on this iteration this adds a jsav step and visualizes it recurssively 
+        recursiveJsavVisualize(roots, bt.root(), jsav, pointer);
+        bt.layout();
+    
+        jsav.step();
+    }
+    
 }
 
 jsav.recorded(); // done recording changes, will rewind
-
-
-console.log(roots)
-
 }
 
-function recursiveJsavVisualize(node, btnode, jsav, pointer) {
+function recursiveJsavVisualize(node, btnode, jsav, pointer) { //this method creates the jsav tree recurssively and also sets the pointer to the correct node
     var leftNum = node.getLeft();
     var rightNum = node.getRight();
     if (node.getIsRoot() == true) {
         pointer.target(btnode);
-        //pointer.pointer("Root", btnode, {top: -20, arrowAnchor: "center top"});
     }
  if (leftNum != null) {
     var newBtNode = btnode.left(node.getLeftNode().getData());
